@@ -1,4 +1,4 @@
-import { styled } from '@stitches/react'
+import { styled } from '@lib/stitches.config'
 // import { type ReactNode } from 'react'
 
 // TODO: figure out how to type a components props
