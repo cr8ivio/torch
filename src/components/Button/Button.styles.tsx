@@ -6,18 +6,19 @@ export const StyledButton = styled('button', {
   /**  Base Styles */
   display: 'inline-flex',
   alignItems: 'center',
-  height: 40,
-  py: '$2',
-  px: '$4',
+  fontSize: '$sm',
   br: '$md',
   transition: 'all 200ms ease-out',
+  '&:focus': {
+    outline: 'none',
+  },
   /**  Variants  */
   variants: {
     variant: {
       filled: {
         color: '$white',
         bg: '$blue-500',
-        '&:hover,&:active': {
+        '&:hover:not(:disabled),&:active:not(:disabled)': {
           bg: '$blue-600',
         },
         '&:focus': {
@@ -25,14 +26,65 @@ export const StyledButton = styled('button', {
           ringColor: '$blue-300',
           ring: '$3',
         },
+        '&:disabled': {
+          opacity: 0.5,
+        },
       },
-      outline: {},
-      text: {},
+      outline: {
+        borderWidth: '$DEFAULT',
+        borderColor: '$lightGray-200',
+        color: '$darkGray-200',
+        bg: '$white',
+        '&:hover:not(:disabled)': {
+          bg: '$lightGray-50',
+        },
+        '&:active:not(:disabled)': {
+          bg: '$lightGray-200',
+          borderColor: '$transparent',
+        },
+        '&:focus': {
+          ringColor: '$blue-300',
+          ring: '$3',
+        },
+        '&:disabled': {
+          opacity: 0.5,
+        },
+      },
+      text: {
+        color: '$darkGray-200',
+        bg: '$white',
+        '&:hover:not(:disabled)': {
+          bg: '$lightGray-50',
+        },
+        '&:active:not(:disabled)': {
+          bg: '$lightGray-200',
+          borderColor: '$transparent',
+        },
+        '&:focus': {
+          ringColor: '$blue-300',
+          ring: '$3',
+        },
+        '&:disabled': {
+          opacity: 0.5,
+        },
+      },
     },
     size: {
-      large: {},
-      medium: {},
-      small: {},
+      large: {
+        height: 40,
+        py: '$2',
+        px: '$4',
+      },
+      medium: {
+        height: 32,
+        py: '$1',
+        px: '$3',
+      },
+      small: {
+        height: 24,
+        py: '$0',
+        px: '$2',
+      },
     },
   },
   /**  Default Variants  */
