@@ -2,6 +2,7 @@ import { createStitches, CSS as StitchesCSS } from '@stitches/react'
 import {
   BorderStyles,
   BorderWidths,
+  BreakPoints,
   Colors,
   FontSizes,
   FontWeights,
@@ -15,6 +16,7 @@ import {
   Transitions,
   ZIndices,
 } from '@lib/theme/tokens'
+import Utils from '@lib/theme/utils'
 
 const { config, css, getCssText, keyframes, styled, theme } = createStitches({
   theme: {
@@ -33,6 +35,8 @@ const { config, css, getCssText, keyframes, styled, theme } = createStitches({
     transitions: Transitions,
     zIndices: ZIndices,
   },
+  media: BreakPoints,
+  utils: Utils,
 })
 
 // Types

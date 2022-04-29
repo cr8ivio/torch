@@ -7,16 +7,17 @@ export const StyledButton = styled('button', {
   justifyContent: 'center',
   alignItems: 'center',
   height: '40px',
-  padding: '8px 16px',
-  borderRadius: '6px',
+  py: '$2',
+  px: '$4',
+  br: '$md',
   /**  Variants  */
   variants: {
     variant: {
       filled: {
         color: '$white',
-        backgroundColor: '$blue-500',
+        bg: '$blue-500',
         '&:hover': {
-          backgroundColor: '$blue-600',
+          bg: '$blue-600',
         },
       },
       outline: {},
