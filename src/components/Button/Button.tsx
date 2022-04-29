@@ -1,19 +1,35 @@
-import { styled } from '@lib/stitches.config'
-// import { type ReactNode } from 'react'
+import React, { ForwardedRef, forwardRef, Ref } from 'react'
+import { StyledButton } from './Button.styles'
+import { ButtonProps } from './Button.types'
 
-// TODO: figure out how to type a components props
-// export interface ButtonProps {
-//   children: ReactNode
-// }
+const Button = <T extends object>(
+  props: ButtonProps<T>,
+  ref: ForwardedRef<HTMLButtonElement>
+) => {
+  const { children, variant, size, as: Component, ...rest } = props
+  return (
+    // @ts-ignore
+    <StyledButton
+      variant={variant}
+      ref={ref}
+      size={size}
+      as={Component}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  )
+}
 
-const Button = styled('button', {
-  backgroundColor: 'gainsboro',
-  borderRadius: '9999px',
-  fontSize: '13px',
-  padding: '10px 15px',
-  '&:hover': {
-    backgroundColor: 'lightgray',
-  },
-})
+Button.displayName = 'Button'
 
-export default Button
+const ForwardedButton = forwardRef(Button)
+
+const WrappedButton = <T,>({
+  ref,
+  ...rest
+}: ButtonProps<T> & { ref?: Ref<HTMLButtonElement> }) => (
+  <ForwardedButton ref={ref} {...rest} />
+)
+
+export default WrappedButton
