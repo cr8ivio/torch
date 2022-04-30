@@ -1,5 +1,5 @@
 {
-  "name": "stiches-design-system",
+  "name": "@cr8iv/torch",
   "version": "0.0.1",
   "description": "MVP for design system using Stiches (CSS-in-JS) as the styling framework",
   "main": "index.js",
